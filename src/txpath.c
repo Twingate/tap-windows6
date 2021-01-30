@@ -694,7 +694,8 @@ Return Value:
             {
                 goto no_queue;
             }
-#if defined(DISABLE_TUN_BROADCAST)
+
+#ifndef ENABLE_TUN_BROADCAST
             // Only accept directed packets, not broadcasts.
             if (memcmp (e, &Adapter->m_TapToUser, ETHERNET_HEADER_SIZE))
             {
